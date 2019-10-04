@@ -42,6 +42,31 @@ p a {
 	text-decoration: none;
 }
 
+/* lists */
+
+ul {
+	padding-left: 2ch;
+	list-style: none;
+}
+
+ul::after {
+	content: "  ...";
+	color: #999999;
+	display: block;
+	white-space: pre;
+}
+
+ul li::before {
+	content: "→ ";
+	color: #d81b60;
+}
+
+ul li:not(.checked)::after {
+	content: " (planned)";
+	color: #999999;
+	font-style: italic;
+}
+
 /* code */
 
 pre {
