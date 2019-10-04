@@ -4,10 +4,68 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>magenta</title>
+	<link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="src/doc.css">
+	<title>magenta programming language</title>
 </head>
 <body>
-	<h1>wip</h1>
-	<p>work in progress</p>
+	<section>
+		<h1>magenta</h1>
+		<p>magenta is a high level, high level, weakly typed, semi-object-oriented
+		language. it is very early in development as of writing, a
+		<a href="#features">list</a> of all current and planned features is
+		available below. documentation and specifications are planned to be
+		extensive with nothing left out, a <a href="#sitemap">list</a> of
+		catagorized wiki pages are listed below.</p>
+
+		<p>it is designed to be deceptively simple, with a high level C-inspired
+		syntax and readable coding style&mdash;but having advanced features as
+		well, such as manual memory management.</p>
+	</section>
+
+	<section>
+		<h1>example</h1>
+		<pre><span class="keyword">#include</span> mypkg <span class="keyword">as</span> pkg
+
+<span class="keyword">function</span> main args {
+	<span class="comment">// loop over a condition array</span>
+	[i = <span class="value">0</span>, i < $(args -> length)] => {
+		<span class="comment">// output to console</span>
+		log <span class="value">"arg #"</span> i <span class="value">" is "</span> $(args[i]);
+	}
+
+	<span class="keyword">return</span> 0;
+}
+</pre>
+	</section>
+
+	<section id="features">
+		<h1>features/todo</h1>
+		<ul>
+			<li>magenta virtual machine</li>
+			<li>variables</li>
+			<li>functions</li>
+			<li>nested functions</li>
+			<li>preprocessor</li>
+		</ul>
+	</section>
+
+	<section id="sitemap">
+		<h1>sitemap</h1>
+		<div class="sitemap">
+			<a href="index.html">home</a>
+		</div>
+	</section>
+
+	<footer>
+		<hr>
+		<div class="copyright">
+			<p>magenta lang</p>
+			<p>
+				<a href="https://discord.gg/bdkzhs6">discord</a>
+				<a href="https://github.com/magentalang">github</a>
+			</p>
+		</div>
+	</footer>
 </body>
 </html>
