@@ -1,0 +1,43 @@
+body {
+	width: 50%;
+	max-width: 80ch;
+	margin: 5em auto;
+	background: #000000;
+	color: #dddddd;
+	font-family: "Ubuntu Mono", monospace, serif;
+	font-size: 1em;
+	tab-size: 4;
+}
+
+@media (orientation: portrait) {
+	body {
+		width: unset;
+		margin: 5em 3em;
+	}
+}
+
+/* titles */
+
+h1, h2, h3, h4, h5, h6 {
+	color: #d81b60;
+	font-weight: normal;
+	line-height: 1.2;
+}
+
+/* text */
+
+section p::before {
+	content: "→   ";
+	color: #d81b60;
+	white-space: pre;
+}
+
+section p {
+	text-align: justify;
+	line-height: 1.6;
+}
+
+p a {
+	color: #d81b60 !important;
+	text-decoration: none;
+}
