@@ -41,3 +41,13 @@ p a {
 	color: #d81b60 !important;
 	text-decoration: none;
 }
+
+/* code */
+
+pre {
+	font-family: "Ubuntu Mono", monospace !important;
+}
+
+pre .comment { color: #999999; font-style: italic; }
+pre .keyword { color: #16a085; }
+pre .value   { color: #2ecc71; }

@@ -22,5 +22,21 @@
 		syntax and readable coding style&mdash;but having advanced features as
 		well, such as manual memory management.</p>
 	</section>
+
+	<section>
+		<h1>example</h1>
+		<pre><span class="keyword">#include</span> mypkg <span class="keyword">as</span> pkg
+
+<span class="keyword">function</span> main args {
+	<span class="comment">// loop over a condition array</span>
+	[i = <span class="value">0</span>, i < $(args -> length)] => {
+		<span class="comment">// output to console</span>
+		log <span class="value">"arg #"</span> i <span class="value">" is "</span> $(args[i]);
+	}
+
+	<span class="keyword">return</span> 0;
+}
+</pre>
+	</section>
 </body>
 </html>
