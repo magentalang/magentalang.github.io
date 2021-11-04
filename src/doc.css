@@ -37,8 +37,8 @@ section p {
 	line-height: 1.6;
 }
 
-p a {
-	color: #d81b60 !important;
+a {
+	color: #d81b60;
 	text-decoration: none;
 }
 
@@ -49,19 +49,19 @@ ul {
 	list-style: none;
 }
 
-ul::after {
+ul li::before {
+	content: "→ ";
+	color: #d81b60;
+}
+
+ul.todo::after {
 	content: "  ...";
 	color: #999999;
 	display: block;
 	white-space: pre;
 }
 
-ul li::before {
-	content: "→ ";
-	color: #d81b60;
-}
-
-ul li:not(.checked)::after {
+ul.todo li:not(.checked)::after {
 	content: " (planned)";
 	color: #999999;
 	font-style: italic;
@@ -102,18 +102,3 @@ pre {
 pre .comment { color: #999999; font-style: italic; }
 pre .keyword { color: #16a085; }
 pre .value   { color: #2ecc71; }
-
-/* sitemap */
-
-.sitemap {
-	margin-bottom: 1.5em;
-	padding: 0 4ch;
-}
-
-.sitemap a {
-	color: #dddddd !important;
-	display: block;
-	text-decoration: none;
-	white-space: pre;
-}
-
