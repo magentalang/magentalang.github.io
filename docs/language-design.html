@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../src/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../src/doc.css">
+	<title>language design – magenta</title>
+</head>
+<body>
+	<a href="../">back</a>
+
+	<section>
+		<h1>/docs/language design</h1>
+		<p>magenta is immutable where convenient, does not have null, and aims to keep code as short as possible whilst maintaining not being absolutely ridiculous</p>
+		<p>view the whole document on <a href="https://github.com/magentalang/magenta/tree/prototype">github</a></p>
+	</section>
+
+	<section>
+		<h1>default values</h1>
+		<p>assignment is done with the -> operator instead of = in most languages, this is because it fits in well with piping which is explained later</p>
+
+		<p>there is no "null" or "undefined" in magenta, you are encouraged to assign to variables where they are defined, but if such is not possible the variable will be assigned its default value until the writer decides to assign to them later</p>
+
+		<pre>// regular variable assignment, type is inferred
+<span class="value">"lorem"</span> -> <span class="keyword">var</span> w <span class="comment">// string ("lorem")</span>
+
+<span class="comment">// "empty" variable assignment, type has to be specified</span>
+<span class="keyword">var</span> x <span class="keyword">string</span> <span class="comment">// empty string ("")</span>
+<span class="keyword">var</span> y <span class="keyword">int</span>    <span class="comment">// zero (0)</span>
+<span class="keyword">var</span> z <span class="keyword">Guy</span>    <span class="comment">// the struct is initialized with default values of all of its members (new Guy())</span></pre>
+	</section>
+
+	<section>
+		<h1>memory management</h1>
+		<p>magenta is somewhat immutable, and has no references. there is no manual memory management, and it implements escape analysis as its sole garbage collection mechanism</p>
+		<pre><span class="keyword">var</span> globalHomer <span class="keyword">Guy</span>
+
+<span class="keyword">string</span> getName() {
+	<span class="comment">// initializes a new Guy with name "lisa" into new variable 'guy'</span>
+	<span class="keyword">new</span> Guy(name <span class="value">"lisa"</span>) -> var guy
+
+	<span class="comment">// creates a copy of guy into a new variable 'otherGuy'</span>
+	guy -> <span class="keyword">var</span> otherGuy
+
+	<span class="value">"homer"</span> -> guy.name
+
+	<span class="comment">// copies the values of guy over 'globalHomer''s values</span>
+	guy -> globalHomer
+
+	<span class="value">"asdf"</span> -> guy.name
+
+	<span class="comment">// 'otherGuy' is unaffected by the modification of guy</span>
+	return otherGuy.name <span class="comment">// "lisa"</span>
+
+	<span class="comment">// upon end of the function, all allocated resources are cleared in bulk
+	// where getName() is used the caller will not receive a reference to the name, but the actual string itself</span>
+}
+
+<span class="comment">// globalHomer has its default values</span>
+globalHomer.name | tty.println <span class="comment">// ""</span>
+
+<span class="comment">// getName is ran, returning the name of 'otherGuy'
+// it also modifies the 'globalHomer' variable...</span>
+getName() | tty.println <span class="comment">// "lisa"</span>
+
+<span class="comment">// ...but the further modification of 'guy' is not propagated (as magenta has no references!!!)</span>
+globalHomer.name | tty.println <span class="comment">// "homer"</span></pre>
+	</section>
+
+	<footer>
+		<hr>
+		<div class="copyright">
+			<p>magenta lang</p>
+			<p>
+				<a href="https://github.com/magentalang">github</a>
+			</p>
+		</div>
+	</footer>
+</body>
+</html>

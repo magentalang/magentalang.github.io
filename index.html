@@ -11,50 +11,46 @@
 <body>
 	<section>
 		<h1>magenta</h1>
-		<p>magenta is a high level, high level, weakly typed, semi-object-oriented
-		language. it is very early in development as of writing, a
-		<a href="#features">list</a> of all current and planned features is
-		available below. documentation and specifications are planned to be
-		extensive with nothing left out, a <a href="#sitemap">list</a> of
-		catagorized wiki pages are listed below.</p>
-
-		<p>it is designed to be deceptively simple, with a high level C-inspired
-		syntax and readable coding style&mdash;but having advanced features as
-		well, such as manual memory management.</p>
+		<p>magenta is a mid-level type-safe language. it's immutable where convenient, does not have null, and aims to keep code as short as possible whilst maintaining not being absolutely ridiculous. the syntax itself borrows elements from the bourne shell, f#, typescript, and go.</p>
 	</section>
 
 	<section>
 		<h1>example</h1>
-		<pre><span class="keyword">#include</span> mypkg <span class="keyword">as</span> pkg
+		<pre><span class="keyword">namespace</span> main
+<span class="keyword">include</span> math
+<span class="keyword">include</span> tty
 
-<span class="keyword">function</span> main args {
-	<span class="comment">// loop over a condition array</span>
-	[i = <span class="value">0</span>, i < $(args -> length)] => {
-		<span class="comment">// output to console</span>
-		log <span class="value">"arg #"</span> i <span class="value">" is "</span> $(args[i]);
-	}
-
-	<span class="keyword">return</span> 0;
+<span class="keyword">int</span> sum(x <span class="keyword">int</span>, y <span class="keyword">int</span>) {
+	<span class="keyword">return</span> x + y
 }
+
+sum(<span class="value">3</span>, <span class="value">5</span>) | math.itoa | tty.println
+<span class="comment">// &rightarrow; 8</span>
 </pre>
 	</section>
 
-	<section id="features">
-		<h1>features/todo</h1>
+	<section>
+		<h1>roadmap</h1>
 		<ul class="todo">
-			<li class="checked">magenta virtual machine (<a href="docs/mvm.html">read</a>)</li>
-			<li>variables</li>
-			<li>functions</li>
-			<li>nested functions</li>
-			<li>preprocessor</li>
+			<li>preprocessor <span class="note">(unimplemented)</span></li>
+			<li>syntax (<a href="docs/syntax.html">read</a>)</li>
+			<li>lexer</li>
+			<li>parser <span class="note">&leftarrow; we are here</span></li>
+			<li>c compiler</li>
+			<li class="note">(prototype complete)</li>
+			<li>rewrite to be self-hosting</li>
+			<li>js compiler</li>
+			<li>vm + vm compiler</li>
 		</ul>
 	</section>
 
-	<section id="sitemap">
+	<section>
 		<h1>sitemap</h1>
 		<ul>
-			<li><a href="index.html">home</a></li>
-			<li>docs/<a href="docs/mvm.html">mvm</a></li>
+			<li><a href="/">home</a></li>
+			<li><a href="journal.html">journal</a></li>
+			<li>docs/<a href="docs/language-design.html">language design</a></li>
+			<li>docs/<a href="docs/syntax.html">syntax</a></li>
 		</ul>
 	</section>
 

@@ -1,18 +1,19 @@
 body {
 	width: 50%;
 	max-width: 80ch;
-	margin: 5em auto;
+	margin: 5rem auto;
 	background: #000000;
 	color: #dddddd;
 	font-family: "Ubuntu Mono", monospace, serif;
 	font-size: 1em;
+	line-height: 1.2;
 	tab-size: 4;
 }
 
 @media (orientation: portrait) {
 	body {
 		width: unset;
-		margin: 5em 3em;
+		margin: 5rem 3rem;
 	}
 }
 
@@ -27,14 +28,9 @@ h1, h2, h3, h4, h5, h6 {
 /* text */
 
 section p::before {
-	content: "→   ";
+	content: "→ ";
 	color: #d81b60;
 	white-space: pre;
-}
-
-section p {
-	text-align: justify;
-	line-height: 1.6;
 }
 
 a {
@@ -61,16 +57,34 @@ ul.todo::after {
 	white-space: pre;
 }
 
-ul.todo li:not(.checked)::after {
-	content: " (planned)";
+.note {
 	color: #999999;
 	font-style: italic;
+}
+
+/* journal */
+
+article {
+	margin-bottom: 3rem;
+}
+
+article:last-of-type {
+	margin-bottom: 0;
+}
+
+article h2 {
+	display: inline;
+	font-size: 1rem;
+}
+
+article p {
+	display: inline;
 }
 
 /* footer */
 
 footer {
-	margin: 1em 0;
+	margin: 1rem 0;
 }
 
 footer hr {
